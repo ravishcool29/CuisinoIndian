@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="./img/icon/icon.png">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" integrity="sha256-rFMLRbqAytD9ic/37Rnzr2Ycy/RlpxE5QH52h7VoIZo=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript">
+            console.log( window.location.pathname.substring( window.location.pathname.lastIndexOf('/')+1));
+            if(window.localStorage.getItem("_checkout_")){
+                window.location.href = './checkout.html'
+            }
+            else if(window.localStorage.getItem("_userid_")){
+                window.location.href = './home.html'
+            }
+        </script>
+        <title>User Credentials</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            body{
+                height: 100vh;
+                font-family: Montserrat-Regular, sans-serif;
+                background-image: url("../img/landing-bg.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                font-family: 'Lato', sans-serif;
+                position: fixed;
+            }
+            input {
+            	outline: none;
+            	border: none;
+            }
+            select, option{
+            	outline: none;
+            	border: none;
+            }
+            textarea {
+              outline: none;
+              border: none;
+            }
+
+            textarea:focus, input:focus, select:focus {
+              border-color: transparent !important;
+            }
+
+            button {
+            	outline: none !important;
+            	border: none;
+            	background: transparent;
+            }
+
+            button:hover {
+            	cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-login">
+            <div class="wrap-login">
+                <div class="login-form" name="userCredentials">
+                    <div class="logo-img">
+                        <img src="./img/logo.png" alt="Cuisino">
+                    </div>
+                    <h1 class="mt-0" style="color: #ff2400;" align="center"><b>Cuisin-O-Indian<b></h1>
+                    <span class="error-message">Name is Required</span>
+                    <label for="username" class="login-label">Name</label>
+                    <div class="wrap-input">
+                        <span class="field-icon"><i class="fa fa-user"></i></span>
+                        <input onfocus="adjustIcon(0, 1)" onblur="adjustIcon(0, 0)" class="text-input" type="text" name="username" id="usernameUserCred" placeholder="Name">
+                        <span class="error"><i class="fa fa-exclamation-circle"></i></span>
+                    </div>
+                    <span class="error-message">Enter a valid Email Id</span>
+                    <label for="email" class="login-label">Email</label>
+                    <div class="wrap-input">
+                        <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                        <input onfocus="adjustIcon(1, 1)" onblur="adjustIcon(1, 0)" class="text-input" type="email" name="email" id="emailUserCred" placeholder="Email">
+                        <span class="error"><i class="fa fa-exclamation-circle"></i></span>
+                    </div>
+                    <span class="error-message">Enter a valid Phone Number</span>
+                    <label for="phnum" class="login-label">Phone number</label>
+                    <div class="wrap-input">
+                        <span class="field-icon"><i class="fa fa-phone"></i></span>
+                        <input onfocus="adjustIcon(2, 1)" onblur="adjustIcon(2, 0)" class="text-input" type="text" name="phnum" id="phnumUserCred" placeholder="Phone Number">
+                        <span class="error"><i class="fa fa-exclamation-circle"></i></span>
+                    </div>
+                    <div class="login-label">
+                        <span>Table For</span>
+                        <span>Time</span>
+                    </div>
+                    <div class="wrap-dropdown">
+                        <select class="input-select" name="guests" id="guestsUserCred">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select class="input-select" name="seconds" id="secondsUserCred">
+                            <option value="1800">30 Minutes</option>
+                            <option value="2700">45 Minutes</option>
+                            <option value="3600">1 Hour</option>
+                            <option value="7200">2 Hours</option>
+                            <option value="10800">3 Hours</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" name="submitUserCred" id="submitUserCred" class="submit-btn">Begin Your Evening!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript">
+            document.getElementById("submitUserCred").addEventListener('click', userCredValidate);
+        </script>
+    </body>
+</html>

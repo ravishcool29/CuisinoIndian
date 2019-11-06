@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" integrity="sha256-rFMLRbqAytD9ic/37Rnzr2Ycy/RlpxE5QH52h7VoIZo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript">
+        if(window.localStorage.getItem("_checkout_")){
+            window.location.href = './checkout.html'
+        }
+        else if(!window.localStorage.getItem("_userid_")){
+            window.location.href = './index.html'
+        }
+    </script>
+        <title>Welcome to Cuisin-O-Indian</title>
+</head>
+<body>
+    <div class="timer row mx-auto">
+        <div class="col-12 col-lg-6 row mx-auto">
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="hrs" align="center">00</p>
+                <h5 class="timer-tags" align="center">Hours</h5>
+            </div>
+            <div class="col-1">
+                <h2>:</h2>
+            </div>
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="mins" align="center">00</p>
+                <h5 class="timer-tags" align="center">Minutes</h5>
+            </div>
+            <div class="col-1">
+                <h2>:</h2>
+            </div>
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="secs" align="center">00</p>
+                <h5 class="timer-tags" align="center">Seconds</h5>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-bar nav-bg">
+        <div class="navigation-logo-cart col-md-6 col-10">
+            <div class="navigation-logo" onclick="window.location.href = './home.html'">
+            <img src="./img/logo.png" alt="Cuisino">
+                <h4>Cuisin-O-Indian</h4>
+            </div>
+            <div class="cart" onclick="window.location.href = './cart.html'">
+                <p><i class="fa fa-2x fa-cart-plus cart-icon"></i><span class="badge badge-warning" id="cart-value">0</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-wrapper">
+        <div id="hamburger" class="navigation-button">
+            <div id="line1" class="line1"></div>
+            <div id="line2" class="line2"></div>
+            <div id="line3" class="line3"></div>
+        </div>
+        <nav id="navigation-menu" class="navigation-menu col-12 col-md-8">
+            <ul>
+                <li><a href="./home.html"><span class="fa fa-home mr-3"></span>Home</a></li>
+                <li><a href="./menu.html" class="active-page"><span class="fa fa-cutlery mr-3"></span>Menu</a></li>
+                <li><a href="./aboutus"><span class="fa fa-user mr-3"></span>About Us</a></li>
+                <li><a href="./cart.html"><span class="fa fa-shopping-cart mr-3"></span>My Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container mid-section">
+        <div class="row mb-5">
+            <ol class="breadcrumb col-11 bg-bread mx-auto">
+                <li class="breadcrumb-item"><a href="./home.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="./menu.html">Menu</a></li>
+                <li class="breadcrumb-item active">Details</li>
+            </ol>
+        </div>
+        <div class="row">
+            <div class="detail-img col-11 col-md-6 mx-auto m-1 p-2">
+                <img src="" alt="" id="dishImg">
+            </div>
+            <div class="col-12 col-md-6 mx-auto m-1 p-3">
+                <h2 id="dishName"></h2>
+                <h4><i class="fa fa-inr"></i><span id="dishPrice"></span></h4>
+                <h5><span class="badge badge-success"><span id="dishRating"></span> <i class="fa fa-star text-warning"></i></span> <span class="badge badge-danger" id="dishRegion"></span></h5>
+                <div class="detail-description mt-4">
+                    <i id="dishDescription"></i>
+                </div>
+                <div class="mt-4">
+                    <div class="col-12 col-md-8">
+                        <p class="btn dishQtyDec" name="dishQtyDec" id="dishQtyDec"><i class="fa fa-minus"></i></p>
+                        <p class="btn dishQty" type="text" name="dishQty" id="dishQty">1</p>
+                        <p class="btn dishQtyInc" name="dishQtyInc" id="dishQtyInc"><i class="fa fa-plus"></i></p>
+                    </div>
+                    <div class="col-12 col-md-8 mt-2" align="center">
+                        <button type="button" name="addToCart" id="addToCart" class="btn col-12 myButton"><span class="fa fa-shopping-cart"></span> <b>Add To Cart</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="review-section col-12 p-4">
+                <h3 class="mb-5">Reviews</h3>
+                <div id="reviewDiv">
+                    <!--div class="review">
+                        <img src="./img/user_icon.jpg" alt="user" class="review-img">
+                        <div class="review-username">
+                            <p>Ravish Chaudhary</p>
+                            <span class="badge badge-success">4 <i class="fa fa-star text-warning"></i></span>
+                            <span class="ml-2">20 Oct 2019</span>
+                        </div>
+                        <div class="review-body mt-2">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">My Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                      121, Phagwara-Jalandhar Highway NH44<br>
+                      Jalandhar, Punjab<br>
+                      India <i>Pin: 144112</i><br>
+                      <i class="fa fa-phone mr-1"></i>: +91 1234 5678<br>
+                      <i class="fa fa-phone mr-1"></i>: 0181 876521<br>
+                      <i class="fa fa-envelope mr-1"></i>: <a href="mailto:help@cuisino.com">help@cuisino.com</a>
+                   </address>
+                </div>
+                <div class="col-12 col-sm-5 align-self-center">
+                    <div class="text-center">
+                        <a href="http://google.com/+"><span class="fa fa-2x fa-google-plus p-1 text-white"></span></a>
+                        <a href="http://www.facebook.com/profile.php?id="><span class="fa fa-2x fa-facebook p-1 text-white"></span></a>
+                        <a href="http://www.linkedin.com/in/"><span class="fa fa-2x fa-linkedin p-1 text-white"></span></a>
+                        <a href="http://twitter.com/"><span class="fa fa-2x fa-twitter p-1 text-white"></span></a>
+                        <a href="http://youtube.com/"><span class="fa fa-2x fa-youtube p-1 text-white"></span></a>
+                        <a href="mailto:help@cuisino.com"><span class="fa fa-2x fa-envelope p-1 text-white"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        callTimerFunction().catch(err => {
+            console.log('SECONDS ERROR');
+            console.error(err);
+        });
+        loadDish().catch(err => {
+            window.alert("Error Loading Dish Details")
+            console.error(err);
+        });
+        function handleQuantity(increment){
+            const dishQty = document.getElementById('dishQty');
+            let qty = Number(dishQty.innerText)+increment;
+            if(qty>=1 && qty<=6)
+                dishQty.innerText = qty;
+        }
+        document.getElementById('dishQtyInc').addEventListener('click', function(){handleQuantity(1);});
+        document.getElementById('dishQtyDec').addEventListener('click', function(){handleQuantity(-1);});
+    </script>
+</body>
+</html>

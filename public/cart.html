@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" integrity="sha256-rFMLRbqAytD9ic/37Rnzr2Ycy/RlpxE5QH52h7VoIZo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript">
+        if(window.localStorage.getItem("_checkout_")){
+            window.location.href = './checkout.html'
+        }
+        else if(!window.localStorage.getItem("_userid_")){
+            window.location.href = './index.html'
+        }
+    </script>
+        <title>Welcome to Cuisin-O-Indian</title>
+</head>
+<body>
+    <div class="timer row mx-auto">
+        <div class="col-12 col-lg-6 row mx-auto">
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="hrs" align="center">00</p>
+                <h5 class="timer-tags" align="center">Hours</h5>
+            </div>
+            <div class="col-1">
+                <h2>:</h2>
+            </div>
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="mins" align="center">00</p>
+                <h5 class="timer-tags" align="center">Minutes</h5>
+            </div>
+            <div class="col-1">
+                <h2>:</h2>
+            </div>
+            <div class="col-3 col-lg-2 mx-auto">
+                <p id="secs" align="center">00</p>
+                <h5 class="timer-tags" align="center">Seconds</h5>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-bar nav-bg">
+        <div class="navigation-logo-cart col-md-6 col-10">
+            <div class="navigation-logo" onclick="window.location.href = './home.html'">
+            <img src="./img/logo.png" alt="Cuisino">
+                <h4>Cuisin-O-Indian</h4>
+            </div>
+            <div class="cart">
+                <p><i class="fa fa-2x fa-cart-plus cart-icon"></i><span class="badge badge-warning" id="cart-value">0</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-wrapper">
+        <div id="hamburger" class="navigation-button">
+            <div id="line1" class="line1"></div>
+            <div id="line2" class="line2"></div>
+            <div id="line3" class="line3"></div>
+        </div>
+        <nav id="navigation-menu" class="navigation-menu col-12 col-md-8">
+            <ul>
+                <li><a href="./home.html"><span class="fa fa-home mr-3"></span>Home</a></li>
+                <li><a href="./menu.html"><span class="fa fa-cutlery mr-3"></span>Menu</a></li>
+                <li><a href="./aboutus.html"><span class="fa fa-user mr-3"></span>About Us</a></li>
+                <li><a href="#" class="active-page"><span class="fa fa-shopping-cart mr-3"></span>My Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container mid-section">
+        <div class="row mb-5">
+            <ol class="breadcrumb col-11 mx-auto bg-bread">
+                <li class="breadcrumb-item"><a href="./home.html">Home</a></li>
+                <li class="breadcrumb-item active"><a>My Cart</a></li>
+            </ol>
+        </div>
+        <div class="row">
+            <div class="col-md-7 col-11 shadow m-1 mx-auto bg-white cart-items-div">
+                <div class="row text-white p-3" style="border-radius: 5px 5px 0 0; background-color: #af69ed;">
+                    <h4 class="m-0">My Cart</h4>
+                </div>
+                <div class="row" id="cartList">
+                    <!--div class="row p-3">
+                        <div class="col-md-4 col-12 cart-item-lhs">
+                            <div class="row h-75 cart-img-div">
+                                <div class="cart-img-innerdiv">
+                                    <img src="./img/salsa.jpg" alt="Dish Name">
+                                </div>
+                            </div>
+                            <div class="row h-25">
+                                <div class="col-12" align="center">
+                                    <span name="dishQtyDec" id="dishQtyDec"><i class="fa fa-minus"></i></span>
+                                    <span class="m-2" type="text" name="dishQty" id="dishQty" style="font-weight: bold;">0</span>
+                                    <span name="dishQtyInc" id="dishQtyInc"><i class="fa fa-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-12 cart-item-rhs">
+                            <div class="h-75">
+                                <h5>Makki Di Roti Sarson Da Saag <span class="badge badge-success"><span id="dishRating">4.5</span> <i class="fa fa-star text-warning"></i></span>
+                                <span class="badge badge-danger" id="dishRegion">Indian</span></h5>
+                                <h5><i class="fa fa-inr"></i>599</h5>
+                            </div>
+                            <div class="h-25">
+                                <span role="button" class="cart-remove-btn">Remove</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p-0 m-0"-->
+                    <div class="row m-0 justify-content-center align-content-center mt-5" style="height: 400px; width: 100%;">
+                        <div class="col-12" align="center">
+                            <img src="./img/box.png" alt="EMPTY">
+                        </div>
+                        <div class="row m-0 mt-2 mx-auto">
+                            <div class="col-12 mx-auto">
+                                <a role="button" href="./menu.html" class="col-auto btn btn-primary">Add Dishes to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-11 shadow m-1 mx-auto bg-white price-details">
+                <div class="row">
+                    <h4 class="col-12 py-2 border-bottom">Price Details</h4>
+                </div>
+                <div class="row h-50">
+                    <div class="col-12 row m-0 align-content-center">
+                        <h5 class="col-6">Total Price:</h5>
+                        <h5 class="col-6" align="right" id="totalPrice">0.0</h5>
+                    </div>
+                    <div class="col-12 row m-0 align-content-center">
+                        <h5 class="col-6">GST (+5%):</h5>
+                        <h5 class="col-6" align="right" id="priceGST">0.0</h5>
+                    </div>
+                    <div class="col-12 row m-0 align-content-center border-bottom border-top">
+                        <h5 class="col-6">Total Payable:</h5>
+                        <h5 class="col-6" align="right" id="totalPayable">0.0</h5>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-8 mx-auto">
+                        <button class="col-12 btn myButton" type="submit" name="orderNow" id="orderNow">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="./home.html">Home</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="./aboutus.html">About Us</a></li>
+                        <li><a href="./cart.html">My Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                      121, Phagwara-Jalandhar Highway NH44<br>
+                      Jalandhar, Punjab<br>
+                      India <i>Pin: 144112</i><br>
+                      <i class="fa fa-phone mr-1"></i>: +91 1234 5678<br>
+                      <i class="fa fa-phone mr-1"></i>: 0181 876521<br>
+                      <i class="fa fa-envelope mr-1"></i>: <a href="mailto:help@cuisino.com">help@cuisino.com</a>
+                   </address>
+                </div>
+                <div class="col-12 col-sm-5 align-self-center">
+                    <div class="text-center">
+                        <a href="http://google.com/+"><span class="fa fa-2x fa-google-plus p-1 text-white"></span></a>
+                        <a href="http://www.facebook.com/profile.php?id="><span class="fa fa-2x fa-facebook p-1 text-white"></span></a>
+                        <a href="http://www.linkedin.com/in/"><span class="fa fa-2x fa-linkedin p-1 text-white"></span></a>
+                        <a href="http://twitter.com/"><span class="fa fa-2x fa-twitter p-1 text-white"></span></a>
+                        <a href="http://youtube.com/"><span class="fa fa-2x fa-youtube p-1 text-white"></span></a>
+                        <a href="mailto:help@cuisino.com"><span class="fa fa-2x fa-envelope p-1 text-white"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        renderCartItems().catch(err => {
+            window.alert("Some Error Occurred...");
+            console.error(err);
+        });
+        document.getElementById('orderNow').addEventListener('click', () => {
+            if(Number(document.getElementById('cart-value').innerText) > 0){
+                if(window.confirm("Are You Sure?\nYou won't be able to order more."))
+                    window.location.href = './checkout.html';
+                    window.localStorage.setItem('_checkout_', true);
+            }
+            else
+                window.alert("Your Cart is EMPTY")
+        })
+        callTimerFunction().catch(err => {
+            console.log('SECONDS ERROR');
+            console.error(err);
+        });
+
+    </script>
+</body>
+</html>

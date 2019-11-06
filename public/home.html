@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="./img/icon/icon.png">
+        <link href="https://fonts.googleapis.com/css?family=Product+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" integrity="sha256-rFMLRbqAytD9ic/37Rnzr2Ycy/RlpxE5QH52h7VoIZo=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./css/style.css">
+        <script type="text/javascript">
+            if(window.localStorage.getItem("_checkout_")){
+                window.location.href = './checkout.html'
+            }
+            else if(!window.localStorage.getItem("_userid_")){
+                window.location.href = './index.html'
+            }
+        </script>
+
+        <title>Welcome to Cuisin-O-Indian</title>
+    </head>
+    <body>
+        <div class="timer row mx-auto">
+            <div class="col-12 col-lg-6 row mx-auto">
+                <div class="col-3 col-lg-2 mx-auto">
+                    <p id="hrs" align="center">00</p>
+                    <h5 class="timer-tags" align="center">Hours</h5>
+                </div>
+                <div class="col-1">
+                    <h2>:</h2>
+                </div>
+                <div class="col-3 col-lg-2 mx-auto">
+                    <p id="mins" align="center">00</p>
+                    <h5 class="timer-tags" align="center">Minutes</h5>
+                </div>
+                <div class="col-1">
+                    <h2>:</h2>
+                </div>
+                <div class="col-3 col-lg-2 mx-auto">
+                    <p id="secs" align="center">00</p>
+                    <h5 class="timer-tags" align="center">Seconds</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-bar">
+            <div class="navigation-logo-cart col-md-6 col-10">
+                <div class="navigation-logo" onclick="window.location.href = './home.html'">
+                    <img src="./img/logo.png" alt="Cuisino">
+                    <h4>Cuisin-O-Indian</h4>
+                </div>
+                <div class="cart" onclick="window.location.href = './cart.html'">
+                    <p><i class="fa fa-2x fa-cart-plus cart-icon"></i><span class="badge badge-warning" id="cart-value">0</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-wrapper">
+            <div id="hamburger" class="navigation-button">
+                <div id="line1" class="line1"></div>
+                <div id="line2" class="line2"></div>
+                <div id="line3" class="line3"></div>
+            </div>
+            <nav id="navigation-menu" class="navigation-menu col-12 col-md-8">
+                <ul>
+                    <li><a class="active-page" href="#"><span class="fa fa-home mr-3"></span>Home</a></li>
+                    <li><a href="./menu.html"><span class="fa fa-cutlery mr-3"></span>Menu</a></li>
+                    <li><a href="#"><span class="fa fa-user mr-3"></span>About Us</a></li>
+                    <li><a href="./cart.html"><span class="fa fa-shopping-cart mr-3"></span>My Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="home-slider justify-content-center">
+            <div>
+                <h1 class="col-lg-6 col-12 mx-auto" align="center">Welcome To Cuisin-O-Indian</h1>
+                <h1 class="col-lg-6 col-12 mx-auto" align="center" id="usernameHome"></h1>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-sm-2">
+                        <h5>Links</h5>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Menu</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">My Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-8 col-sm-5">
+                        <h5>Our Address</h5>
+                        <address>
+                          121, Phagwara-Jalandhar Highway NH44<br>
+                          Jalandhar, Punjab<br>
+                          India <i>Pin: 144112</i><br>
+                          <i class="fa fa-phone mr-1"></i>: +91 1234 5678<br>
+                          <i class="fa fa-phone mr-1"></i>: 0181 876521<br>
+                          <i class="fa fa-envelope mr-1"></i>: <a href="mailto:help@cuisino.com">help@cuisino.com</a>
+                       </address>
+                    </div>
+                    <div class="col-12 col-sm-5 align-self-center">
+                        <div class="text-center">
+                            <a href="http://google.com/+"><span class="fa fa-2x fa-google-plus p-1 text-white"></span></a>
+                            <a href="http://www.facebook.com/profile.php?id="><span class="fa fa-2x fa-facebook p-1 text-white"></span></a>
+                            <a href="http://www.linkedin.com/in/"><span class="fa fa-2x fa-linkedin p-1 text-white"></span></a>
+                            <a href="http://twitter.com/"><span class="fa fa-2x fa-twitter p-1 text-white"></span></a>
+                            <a href="http://youtube.com/"><span class="fa fa-2x fa-youtube p-1 text-white"></span></a>
+                            <a href="mailto:help@cuisino.com"><span class="fa fa-2x fa-envelope p-1 text-white"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            callTimerFunction().catch(err => {
+                console.log('SECONDS ERROR');
+                console.error(err);
+            });
+            fetch(`/userAttribute/${window.localStorage.getItem('_userid_')}/name`).then(response => {
+                return response.json();
+            }).then(data => {
+                if(data.success){
+                    document.getElementById('usernameHome').innerText = data.name;
+                }
+            }).catch(err => {
+                console.log('EXTERNAL');
+                console.error(err);
+            });
+        </script>
+    </body>
+</html>
