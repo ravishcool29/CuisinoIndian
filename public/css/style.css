@@ -559,7 +559,9 @@ body{
 .footer-links > li > a:hover{
     text-decoration: underline;
 }
-
+.overflow-auto{
+    overflow: auto;
+}
 
 
 

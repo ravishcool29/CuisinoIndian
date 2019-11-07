@@ -18,7 +18,59 @@
             window.location.href = './index.html'
         }
     </script>
-        <title>Welcome to Cuisin-O-Indian</title>
+    <style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 68vw 30vw;
+  height: 100vh;
+}
+.grid-item {
+  height: 100vh;
+}
+#launch{
+			height: 500px;
+			width:100%;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			padding-right: 10px;
+		}
+#frame{
+    border-radius: 20px;
+}
+body{
+font-family: 'Open Sans', sans-serif;
+background-image: linear-gradient(to bottom right, indigo, violet);
+background-repeat: no-repeat;
+
+}
+#topslab{
+    border-radius:5%;
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    width: 65vw;
+    height:95vh;
+    box-shadow:6px 7px 5px #000;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top:1%;
+}
+#topheading{
+    font-size: 24px;
+}
+#desc{
+    font-size: 16px;
+}
+
+::-webkit-scrollbar{
+		width:0px;
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb{
+		background: #FF0000;
+	}
+</style>
+        <title>About Us</title>
 </head>
 <body>
     <div class="timer row mx-auto">
@@ -70,8 +122,20 @@
         </nav>
     </div>
 
-    <div class="container mid-section">
+    <div class="mid-section">
+    	<div class="grid-container">
+        	<div id=topslab>
+  				<div class="grid-item">
+        			<div id="launch">
+                		<iframe  src="about_text.html" height="133%" width="97%" seamless="seamless"  id="frame" ></iframe>
+            		</div>
+  				</div>
+			</div>
 
+  			<div class="grid-item">
+      			<iframe src="about_AI.html" height="97%" width="102%" seamless="seamless"  id="frame" scrolling="no"></iframe>
+  			</div> 
+		</div>
     </div>
 
     <footer class="footer">

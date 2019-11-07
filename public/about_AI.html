@@ -1,0 +1,503 @@
+<html>
+            <head>
+                <title>AI Chatbot</title>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+                <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+            </head>
+    <body onload=default_msg()>
+        <div id="top">
+            <h2 id="foo"></h2>
+            </div>
+        </div>
+        <div id="bottom">
+               <input type="text" id="input" placeholder="Write your message...">
+                <img src="about_send.png" onclick="usercmd()" id="btn">
+                <center><img src="about_off.png" onclick="speaker_toggle()" id="mybtn"</center>
+
+        </div>
+    </body>
+    <style>
+        h2{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: normal;
+        }
+    #top{
+        overflow-y: auto;
+        height:80vh;
+        width:98vw;
+        overflow: scroll;
+        border-radius: 5%;
+        background:#ffffff4d;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    ::-webkit-scrollbar{
+		width:0px;
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb{
+		background: #FF0000;
+	}
+    #bottom{
+        margin-top: 7%;
+        border-radius:5%;
+        height:20vh;
+        width:98vw;
+        background: transparent;
+    }
+    body{font-family: 'Open Sans', sans-serif;
+	}
+    #btn{
+    margin-top: 0.3%;
+    z-index: 99;
+    height:50px ;
+    width: 50px;
+    float:right;
+    outline: none;
+    border-radius: 50%;
+    }
+    #inputbox{
+        bottom: 1px;
+    }
+    #input{
+    outline: none;
+    border-radius: 25px;
+    border: 2px solid #545454;
+    padding: 20px;
+    width: 86vw;
+    height: 50px;
+    }
+li{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 18px;
+  width: 90vw;
+  margin: 10px 0;
+
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+  font-size: 18px;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+#btn:hover{
+    background-color: #111111;
+}
+#speaker2{
+    width: 40px;
+    height: 40px;
+}
+
+#mybtn{
+    height:50px ;
+    border-radius:50% ;
+    width: 50px;
+}
+#mybtn:hover{
+    background: #000;
+}
+    </style>
+    <script>
+
+    function usercmd(){
+        var cmd=document.getElementById("input").value;
+        dothat(cmd);
+    }
+    function dothat(cmd){
+        m = [];
+        var i=0;
+        m[i]='<li style="list-style-type:none"><div class="container" id="frstuser"><img src="about_user.png" alt="Avatar"><p id="user">'+cmd+'</p></div></li>';
+        document.getElementById("input").value="";  
+        document.getElementById('foo').innerHTML+=m;
+        clearInterval(interval);
+        ai(cmd);
+    }
+
+    var interval;
+    var sound=0;
+    var first_run=0;
+    var list_bot_count=1;
+    var starters=["Samosa","Pakora","Paneer tikka","Kachori","Medu vada","Vegetable kofta","Spring rolls","Falafel","Oats dokhla","Kurkuri bhindi","Palak chaat","Roasted tomato soup","Corn chat","Tandoori aloo","Masala papad"];
+    var main_courses=["Chinese","Indian","Thai","Mexican"];  
+    var desserts=["Tiramisu","Chocolate mousse","Honey cheesecake","Maple snickerdoodle","Gulab jamun","Jalebi","Ghujiya","Ghajar ka halwa","Ladoo","Ada pradhaman","Barfi","Pazhampori","Kheer","Rasmalai","Kaju katli"];
+    var main_course_chinese=["Kung Pao Chicken","General Tsao's Chicken","Cashew Chicken","Chinese Noodle Chicken","Chicken Lo Mein","Szechwan Chilli Chicken","Stir Fried Tofu with Rice","Shitake Fried Rice with Water Chestnuts","Chicken with Chestnuts","Honey Chilli Potato"];
+    var chinese_desc=["Spicy chicken with peanuts, similar to what is served in Chinese restaurants. It is easy to make, and you can be as sloppy with the measurements as you want. They reduce to a nice, thick sauce. Substitute cashews for peanuts, or bamboo shoots for the water chestnuts. You can't go wrong! Enjoy!","A genuinely mouthwatering dish with an Asian kick that will knock your chopsticks off! Don't be fooled by other General Tsao impostors: this is simply the best Chinese chicken you will ever have. With a flair of peanut oil, a streak of sesame, a dash of orange, and a sweet spot for hot, this is sure to be a favorite. Just don't forget to deep-fry twice! Serve with steamed broccoli and white rice","This is a fantastic way to use up some leftover grilled chicken breasts. This will work with any kind of cooked chicken, but leftover grilled chicken has that little bit of smokiness that adds something special to this quick recipe. Serve over hot cooked rice.","This is a quick, easy, healthy meal. Add a salad and light dessert and you are sure to get rave reviews. My family asks for this meal at least once a week.","This dish is easy to make, and full of flavor. The chicken is incredibly tender, and the ginger, garlic and soy sauce combine to give it its authentic taste. Garnish with chopped fresh cilantro.","A fiery delight straight from the Sichuan region. It is loaded with pungent spices like brown pepper. red chillies, ginger, green chillies and white pepper.","A simple stir-fry with tofu and oriental sauces. Sti fried togu with rice is a great main course dish to prepare at home laced with flavourful spices and sauces. Serve with some fried rice to make a wholesome meal.","A healthy frice recipe packed with the goodness of mushrooms and water chestnuts that are often used in Chinese meals. Here is a delicious fried rice recipe dish that is fast, filling and flavourful. You can serve with a gravy dish of hot garlic sauce.","Stir-fried mushrooms with minced chicken, water chestnut and radish along with a host of veggies and sauces like date puree, fish sauce and the Chinese classic soya sauce. This earthy recipe is perfect for a holiday feast.","The quintessential Indo-Chinese snack! Honey chilli potato is what you'll find at every Chinese van in and around north India. It has the perfect balance of sweet and spicy with sliced potatoes tossed with a host of sauces and spices."];
+    var main_course_indian=["Rogan Josh","Korma","Machchli Amritsari","Chole Bhature","Tandoori Chicken","Sarson Ka Saag Aur Makki Ki Roti","Hyderabadi Biriyani","Chicken Tikka Masala","Meat Combo for Two","Vegetable Thali"];
+    var indian_desc=["With most Indian dishes, you can select your choice of meat. When it comes to rogan josh, lamb is the only option. The key to its smoky and sweet taste is the base, which consists of onions that have been browned in oil or ghee (clarified butter) until essentially caramelized, as well as the heavy dose of bracing, warming spices like whole cardamom and clove. You might see on a menu that the dish has chilies, but don’t worry—the chilies used in rogan josh are usually mild ones. If you’re at a good Indian restaurant, your rogan josh might be finished with a touch of saffron—an expensive spice with a delicate, floral flavor.","Korma is meat (usually chicken or lamb) braised in a garlic- and ginger-spiked yogurt sauce. It’s cooked using the low-and-slow method, so the yogurt doesn’t curdle, yielding a tender, mild stew. If your korma tastes extra rich, that’s probably because the gravy has ground cashews or almonds in it—an extra piece of flair often added to enrich the taste.", "A treat for all fish lovers. Beautiful pieces of fish, coated in a spicy batter and deep fried to a golden perfection. Garnished with a sprinkling of garam masala and a dash of lemon juice for that extra zing.","Talk about Punjabi food and the popular chole bhature can never be given a skip. The dish has become one of the favourites with people across the country and is also one of the must try Indian delicacies","Hard to resist, tandoori food never fails to please one and all. Chef Aditya Bal shows you simple steps and tricks to create some tandoori magic right in the comfort of your home!","Palak, bathua and sarso saag come together to create a sensation with hearty makke ki roti. Simple, savoury and full of rustic flavours.","Hyderabadi biriyani orginated from hyderabad is a flavourful biriyani.It is prepared using rice with dum method of cooking.Method of cooking and the potli spicy masala make the biriyani unique one","Boneless chicken marinated in herbs and spices, barbecued and cooked with cream and almonds. Served with rice.","A superb combination of Tandoori Chicken, Reshmi Kebab, Lamb Tikka, Prawn, Butter Chicken, Vegetable Curry of the day, Pulao Rice and Naan Bread.","A feast for veggie lovers! Delicious combo of four different vegetable dishes with salad and Plain Paratha. Served with Pulao Rice, Raita and the chef’s special dessert."];
+    var main_course_thai=["Tom Yum Goong (Spicy Shrimp Soup)","Som Tum (Spicy Green Papaya Salad)","Tom Kha Kai (Chicken in Coconut Soup)","Gaeng Daeng (Red Curry)","Pad Thai (Thai style Fried Noodles)","Khao Pad (Fried Rice)","Pad Krapow Moo Saap (Fried Basil and Pork)","Gaeng Keow Wan Kai (Green Chicken Curry)","Yam Nua (Spicy Beef Salad)","Kai Med Ma Muang (Chicken with Cashew Nuts)"];
+    var thai_desc=["The quintessential Thai aroma! A bold, refreshing blend of fragrant lemongrass, chilli, galangal, lime leaves, shallots, lime juice and fish sauce shapes this classic soup, giving it its legendary herbal kick. Succulent fresh prawns and straw mushrooms lend it body. A versatile dish that can fit within virtually any meal, the distinctive smell reminds you of exotic perfume, while it's invigorating sour-spicy-hot taste just screams 'Thailand'!","Hailing from the Northeast state of Isaan, this outlandish dish is both great divider - some can't get enough of its bite, some can't handle it - and greatly distinctive. Garlic, chilies, green beans, cherry tomatoes and shredded raw papaya get dramatically pulverized in a pestle and mortar, so releasing a rounded sweet-sour-spicy flavour that's not easily forgotten. Regional variations throw peanuts, dry shrimp or salted crab into the mix, the latter having a gut-cleansing talent that catches many newcomers by surprise!","A mild, tamer twist on Tom Yum, this iconic soup infuses fiery chilies, thinly sliced young galangal, crushed shallots, stalks of lemongrass and tender strips of chicken. However unlike its more watery cousin, lashings of coconut milk soften its spicy blow. Topped off with fresh lime leaves, it's a sweet-smelling concoction, both creamy and compelling.","Made with morsels of meat, red curry paste, smooth coconut milk and topped off with a sprinkling of finely sliced kaffir lime leaves, this rich, aromatic curry always gets those taste buds tingling. At its best when the meat is stunningly tender, it could be likened to a beautiful woman: it's mild, sweet and delicately fragrant. And like all true love affairs, absence makes the heart grow fonder.","From Cape Town to Khao San Road, the default international Thai dish! Dropped in a searing hot wok, fistfuls of small, thin or wide noodles (you choose) do a steamy minute-long dance alongside crunchy beansprouts, onion and egg, before disembarking for the nearest plate. A truly interactive eating experience, half its fun (and flavour) lies in then using a quartet of accompanying condiments - fish sauce, sugar, chilli powder and finely ground peanuts - to wake it from its slumbers.","Fried rice, egg, onion, a few herbs - nothing more, nothing less. A popular lunch dish served typically with a wedge of lime and slices of cucumber, the secret of this unpretentious dish lies in its simplicity. The concept is this: you're the one devouring it, so you dress it. To do so, Thais use everything from prawns, crab or chicken to basil, chili and left-over vegetables, in the process turning an unremarkable pauper into a gastronomic prince!","An incredibly popular ‘one plate’ dish for lunch or dinner, fried basil and pork is certainly one of the most popular Thai dishes. It is made in a piping hot wok with lots of holy basil leaves, large fresh chilli, pork, green beans, soy sauce and a little sugar. The minced, fatty pork is oily and mixes with the steamed white rice for a lovely fulfilling meal. It is often topped with a fried egg (kai dao) you will most likely be asked if you would like an egg with it. Be aware that most Thai people ask for lots of chilli in this dish so if you are not a fan of tingling lips, ask for you pad krapow ‘a little spicy’.","Morsels of fresh chicken. Cherry-sized eggplants. Tender bamboo shoots. Sprigs of Coriander. Generous handfuls of sweet basil. These humble elements form the body of this seminal curry. But how does it get so gloriously green you ask? Oh, that'll be the spoons of green curry paste that's stirred furiously into hot creamy coconut milk. Served alongside a bowl of fragrant Thai rice, Gaeng Keow Kan Gai is the extreme opposite.","If there was such a thing as a 'Salad Hall of Fame', Thailand's zesty own breed, or 'yam' as they are known here, would surely take pride of place. Unconvinced? Experience the fresh, fiery thrill of yam nua - with its sprightly mix of onion, coriander, spearmint, lime, dried chili and tender strips of beef - and you won't be. It perfectly embodies the invigorating in-the-mouth-thrill of all Thai salads, the yummy-ness of yam.","Pardon the pun, but tourists go nuts for this stir fried dish. Perhaps it's the wildly contrasting textures of a dish that saut's chicken alongside roasted cashews, sweet soy sauce, onions, chilies, pepper, carrot and mushrooms. Perhaps it's the sweetening dash of honey that appeals. Do you really care? The important thing is that this dish works: it's simple but scrumptious, a little bit tame and yet still totally Thai."];
+    var main_course_mexican=["Burritos with Minced Meat Filling","Chicken Quesadillas","Guacamole","Chilli Con Carne","Tomato Salsa","Enchiladas","Guilt-Free Chilli","Red Snapper Vera Cruzana","Panucho","Mixiote"];
+    var mexican_desc=["Gorge on delicious tortilla wraps stuffed with spiced minced meat. They are wholesome and ideal for a meal on-the-go.The word 'burrito' actually means 'little donkey' in Spanish.","These half-moon wraps are perfect as a snack or a mini meal. The best part is that there is enough room for creativity when it comes to fillings.", "Spice up your Mexican menu with a generous serving of the traditional Mexican dip. It is made with avocados which is an amazing source of protein, especially for vegetarians.","Indulge in a steamy bowl of this spicy Mexican stew, rich with the goodness of beans and meat. Serve with some freshly baked focaccia.","This tangy salsa dip offers a perfect balance of freshness and earthy flavours. Serve it with crisp, crusty bites and watch it disappear in no time.","Enchilada is a soft corn toritalla which is stuffed with a filling, draped in sauce and baked perfect. Lose yourself in every bite, with oodles of cheese and chicken.","A lip-smacking blend of kidney beans, chillies, cheese, tomatoes and chicken to go with baked bread or nachos.","Dig into soft flaky fillets of baked Red Snapper, a Mexican favourite. Coat the fillets with a spicy tomato sauce - a riot of flavours for your palate.","A Panucho is a Mexican food specialty from the Yucatán made with a refried tortilla that is stuffed with refried black beans and topped with chopped cabbage, pulled chicken or turkey, tomato, pickled red onion, avocado, and pickled jalapeño pepper.","A misiote is a traditional pit-barbecued meat dish in central Mexico; especially in the Basin of Mexico. It can also be prepared in an oven. It is usually made with mutton or rabbit, but chicken, lamb, and pork are also used."];
+    var timings=["Monday to Friday: 1:00PM to 8:00 PM","SAT-SUN: 1:00PM to 11:00PM"];
+   
+    function ai(cmd){
+        m = '<li style="list-style-type:none"><div class="container darker" id="bot_"><img src="about_bot.png" alt="Avatar" class="right"><p id="bot'+list_bot_count+'"></p></div></li>';
+        document.getElementById('foo').innerHTML+=m;
+        list_bot_count+=1;
+        var hello_words=["hello","hi","hey","hello bot","hello there"];
+        var bot_hello_words=["Hello Customer.","Hello there.. How can I help you.","Hi. Please Enter your query...","Hello, Please ask your Question."];
+        var greeting_response=["fine","good","awesome","i need help"];
+        var bot_greeting_response=["Great, How can I help?"];
+        var bot_bye_response=["Good Bye... Have a Nice Day...","Thanks for using our service...","We hope we helped you with your query."];
+        var time_issues=['Whats the timing for Dinner?',"When restuarent opens?","Whats the time?"]
+        var i=0;
+        var torun=1;
+        var speed = 30;
+        var io=0;
+        bot_id=0;
+        text_res="...";
+        function typeWriter() {
+             if (io < text_res.length) {
+                 if(io==0){
+                    if(sound==1){
+                     speakit();
+                }
+                 }
+                if(text_res[io]=="\n"){
+                    document.getElementById("bot"+bot_id).innerText+="\n";
+                }
+                else{
+                document.getElementById("bot"+bot_id).innerHTML+=text_res.charAt(io);
+                }
+                io++;
+                setTimeout(typeWriter, speed);
+                }
+        }
+
+        if(torun){        
+        for(i;i<hello_words.length;i++){
+            cmd=cmd.toLowerCase();
+            if(cmd.localeCompare(hello_words[i])==0){
+                min=0;
+                max=3;
+                random_response=Math.floor(Math.random() * (+max - +min)) + +min;
+               torun=0;
+               text_res=bot_hello_words[random_response];
+               io=0;
+               bot_id=list_bot_count-1;
+               typeWriter();  
+            }
+        }
+    }
+        if(torun){
+            for(i;i<hello_words.length;i++){
+            if(cmd.localeCompare(greeting_response)==0){
+                min=0;
+                max=0;
+               random_response=Math.floor(Math.random() * (+max - +min)) + +min;  
+               text_res=bot_greeting_response[random_response];
+               io=0;
+               torun=0;
+               bot_id=list_bot_count-1;
+               typeWriter();  
+            }
+        }
+        
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("time" )|| cmd.includes("timing") || cmd.includes("opens")){
+            text_r='Timing is as follow:\n ';
+            var ik=0;
+            for(ik;ik<timings.length;ik++){
+                text_r+=timings[ik]+"\n ";
+            }
+            text_r+="\n\nRestuarant is closed on national holidays.";
+            text_res=text_r;
+            io=0;
+            bot_id=list_bot_count-1;
+            typeWriter();
+            torun=0;
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("menu") || cmd.includes("dishes")){
+            text_res="Choose one of the following:\n1.Starters\n2.Main Course\n3.Desserts";
+            io=0;
+            bot_id=list_bot_count-1;
+            typeWriter();
+            torun=0;   
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd=='1' || cmd.includes("starters")){
+                var text_to_pass="These are the Starters:\n";
+                var i=0;
+                for(i;i<starters.length;i++){
+                    if(i==starters.length-1){
+                        text_to_pass+=(i+1)+". "+starters[i];    
+                    }
+                    else{
+                    text_to_pass+=(i+1)+". "+starters[i]+"\n";
+                    }
+                }
+                text_res=text_to_pass;
+                io=0;
+                bot_id=list_bot_count-1;
+                typeWriter();
+                torun=0;
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd==3 || cmd.includes("desserts")){
+                var i=0;
+                var text_to_pass="These are the Desserts:\n";
+                for(i;i<desserts.length;i++){
+                    if(i==desserts.length-1){
+                    text_to_pass+=(i+1)+". "+desserts[i];
+                }
+                else{
+                    text_to_pass+=(i+1)+". "+desserts[i]+"\n";
+                }
+                }
+                text_res=text_to_pass;
+                io=0;
+                bot_id=list_bot_count-1;
+                typeWriter();
+                torun=0;
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd==2 || cmd.includes("main course") || cmd.includes("course")){
+                var text_to_pass="Select from the following:\n";
+                for(i=0;i<main_courses.length;i++){
+                    if(i==main_courses.length-1){
+                    text_to_pass+=(i+1)+". "+main_courses[i];
+                    }
+                    else{
+                        text_to_pass+=(i+1)+". "+main_courses[i]+"\n\n";
+                    }
+                    }
+                    text_res=text_to_pass;
+                io=0;
+                bot_id=list_bot_count-1;
+                typeWriter();
+                torun=0;
+            }
+        }
+        if(torun){
+            for(var i=0;i<main_courses.length;i++){
+                if(cmd.includes(main_courses[i]) || cmd.includes(main_courses[i].toLowerCase())){
+                    torun=0;
+                    text_res=main_courses[i]+" Cuisine";
+                    bot_id=list_bot_count-1;
+                    typeWriter();
+                    makeList(i);
+                }
+            }
+        }
+
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("what can you do") || cmd.includes("help") || cmd.includes("commands")){
+                text_res="You can ask me about Menu, Timing and other questions related to our Restuarant."
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("bye") || cmd.includes("thanks") || cmd.includes("thank you")){
+                min=0;
+                max=3;
+                random_response=Math.floor(Math.random() * (+max - +min)) + +min;
+                text_res=bot_bye_response[random_response];
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("food quality") || cmd.includes("quality of food")){
+                text_res="We provide only quality food to our customers. We work with only the best food supliers like small family farms, insuring that we always have the best and always fresh ingredients.";
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("parking") || cmd.includes("vehicle")){
+                text_res="There is a parking spot outside the Restuarant.";
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+            }
+        }
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("vegeterian") || cmd.includes("for veg") || cmd.includes("veg or non veg")){
+                text_res="We serve both Vegeterian Food and Non Vegeterian Food.\nKindly check our menu.";
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+                
+            }
+        }
+
+        if(torun){
+            cmd=cmd.toLowerCase();
+            if(cmd.includes("who made you") || cmd.includes("who created you") || cmd.includes("created by")){
+                text_res="It is Kavya who made me with all her efforts."
+                io=0;
+                bot_id=list_bot_count-1;
+                torun=0;
+                typeWriter();
+            }
+        }
+        if(torun){
+            text_res="Sorry! Requested query is not available at this time..."
+            io=0;
+            bot_id=list_bot_count-1;
+            torun=0;
+            typeWriter();
+        }
+    }
+    function speakit(){
+        responsiveVoice.speak(""+text_res+"","US English Female");
+    }
+    function speaker_toggle(){
+        if(sound==0){
+            sound=1;
+            document.getElementById("mybtn").src="about_on.png";
+            responsiveVoice.speak("Speech Turned ON","US English Female");
+        }
+        else{
+            sound=0;
+            document.getElementById("mybtn").src="about_off.png";
+            responsiveVoice.speak("Speech Turned OFF","US English Female");
+        }
+    }
+    var jo;
+    var speed2=30;
+    function typeWriter_default(){
+                if (jo< text_res.length) {
+                 if(jo==0){
+                    if(sound==1){
+                     speakit();
+                }
+                 }
+                if(text_res[jo]=="\n"){
+                    document.getElementById("bot"+bot_id).innerText+="\n";
+                }
+                else{
+                document.getElementById("bot"+bot_id).innerHTML+=text_res.charAt(jo);
+                }
+                jo++;
+                interval=setTimeout(typeWriter_default, speed2);
+                }
+        }
+    function default_msg(){
+        m = '<li style="list-style-type:none"><div class="container darker"><img src="about_bot.png" alt="Avatar" class="right"><p id="bot0"></p></div></li>';
+        document.getElementById('foo').innerHTML+=m;
+        bot_id=0;
+        text_res="Hi there, I am your Assistant you can ask me your queries...";
+        jo=0;
+        typeWriter_default();
+    }
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+   async function makeList(i){
+        if(i==0){
+            for(var j=0;j<main_course_chinese.length;j++){
+                m = '<li style="list-style-type:none; cursor:pointer" onclick="show_desc('+i+','+j+')" id="menu'+j+'" ><div class="container darker" id="bot_"><p>'+(j+1)+'. '+main_course_chinese[j]+'</p></div></li>';
+                document.getElementById('foo').innerHTML+=m;
+                await sleep(500);
+        }
+        }
+        else if(i==1){
+            for(var j=0;j<main_course_indian.length;j++){
+                m = '<li style="list-style-type:none; cursor:pointer" onclick="show_desc('+i+','+j+')" id="menu'+j+'" ><div class="container darker" id="bot_"><p>'+(j+1)+'. '+main_course_indian[j]+'</p></div></li>';
+                document.getElementById('foo').innerHTML+=m;
+                await sleep(500);
+        }
+        }
+        else if(i==2){
+            for(var j=0;j<main_course_thai.length;j++){
+                m = '<li style="list-style-type:none; cursor:pointer" onclick="show_desc('+i+','+j+')" id="menu'+j+'" ><div class="container darker" id="bot_"><p>'+(j+1)+'. '+main_course_thai[j]+'</p></div></li>';
+                document.getElementById('foo').innerHTML+=m;
+                await sleep(500);
+        }
+        }
+        else if(i==3){
+            for(var j=0;j<main_course_mexican.length;j++){
+                m = '<li style="list-style-type:none; cursor:pointer" onclick="show_desc('+i+','+j+')" id="menu'+j+'" ><div class="container darker" id="bot_"><p>'+(j+1)+'. '+main_course_mexican[j]+'</p></div></li>';
+                document.getElementById('foo').innerHTML+=m;
+                await sleep(500);
+        }
+        }
+      
+        
+    }
+    function show_desc(a,b){
+        m = '<li style="list-style-type:none"><div class="container darker" id="bot_"><img src="about_bot.png" alt="Avatar" class="right"><p id="bot'+list_bot_count+'"></p></div></li>';
+        document.getElementById('foo').innerHTML+=m;
+        list_bot_count+=1;
+        for(var rem=0;rem<main_course_mexican.length;rem++){
+                if(rem!=b){
+                document.getElementById("menu"+rem).remove();
+            }
+        }
+        if(a==0){
+            text_res=main_course_chinese[b]+"\n\n"+chinese_desc[b];
+        }
+        else if(a==1){
+            text_res=main_course_indian[b]+"\n\n"+indian_desc[b];
+        }
+        else if(a==2){
+            text_res=main_course_thai[b]+"\n\n"+thai_desc[b];
+        }
+        else if(a==3){
+            text_res=main_course_mexican[b]+"\n\n"+mexican_desc[b];
+        }
+        else{
+            text_res="Command not found...";
+        }
+            jo=0;
+            bot_id=list_bot_count-1;
+            torun=0;
+            speed2=20;
+            typeWriter_default();
+    }
+
+    </script>
+</html>
