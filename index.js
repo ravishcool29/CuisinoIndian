@@ -179,7 +179,14 @@ app.get('/removeItemCart/:id', (request, response) => {
             success: true
         });
     });
-})
+});
+app.get('/priceUpdate/:id/:total', (request, response) => {
+    database.session.update({_id: request.params.id}, {$set: {totalPrice: request.params.total}}, (err, numAffected, docs, upsert) => {
+        if (err)
+            console.error(err);
+        response.end();
+    });
+});
 app.get('/reviews/:dishId', (request,response) => {
     console.log(request.params.dishId);
     database.reviews.find({dishId: request.params.dishId}, (err, docs) => {
@@ -303,6 +310,17 @@ app.get('/userAttribute/:id/:attr', (request, response) => {
             response.json({success: true, seconds: docs[0].seconds});
         });
     }
+    else if(attr === 'totalPrice'){
+        database.session.find({_id: request.params.id}, {totalPrice: 1, _id: 0}, (err, docs) => {
+            if(err){
+                console.error(err);
+                response.json({success: false});
+                return;
+            }
+            console.log({success: true, totalPrice: docs[0].totalPrice});
+            response.json({success: true, totalPrice: docs[0].totalPrice});
+        });
+    }
     else
         response.json({success: false});
 });
@@ -334,4 +352,18 @@ app.get('/removeUser/:id', (request, response) => {
 });
 app.get('itemExistsInCart/:id/:dishId', (request, response) => {
     database.session.find({_userid})
+});
+app.get('/removeUserEntities/:id', (request, response) => {
+    database.session.remove({_userId: request.params.id}, {multi: true}, (err, enteriesRemoved) => {
+        if(err){
+            console.error(err);
+            response.json({
+                success: false
+            });
+            return;
+        }
+        response.json({
+            success: true
+        });
+    });
 });

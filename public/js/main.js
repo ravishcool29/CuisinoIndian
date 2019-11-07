@@ -99,7 +99,6 @@ async function startTimer(seconds){
         document.getElementById('secs').innerText = secs;
     else
         document.getElementById('secs').innerText = "0"+(secs);
-    console.log(secs);
     window.localStorage.setItem('_seconds_', seconds-1);
     if(secs == 0){
         const response = await fetch(`/updateSeconds/${window.localStorage.getItem('_userid_')}/${seconds}`);
@@ -259,7 +258,7 @@ async function loadDish(){
     const addToCart = document.getElementById('addToCart');
     const resp = await fetch(`/itemExistsInCart/${window.localStorage.getItem('_userid_')}/${dishId}`);
     const exists = await resp.json();
-
+    //console.log(exists);
     if(exists.success){
         if(exists.exists){
             addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
@@ -273,16 +272,15 @@ async function loadDish(){
         const resp = await fetch(`/itemExistsInCart/${window.localStorage.getItem('_userid_')}/${dishId}`);
         const exists = await resp.json();
         if(exists.success){
-            if(exists.exists){
-                addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
+            if(exists.exists)
                 window.location.href = './cart.html';
-            }
             else{
                 const response = await fetch(`/addToCart/${window.localStorage.getItem('_userid_')}/${dish._id}/${qty}`);
                 const success = await response.json();
 
                 //console.log(success);
                 if(success.success){
+                    addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
                     window.alert(`Item Added To Cart\nQuantity: ${qty}`);
                     cartValueUpdate();
                 }
@@ -419,7 +417,7 @@ async function renderCartItems(){
                                 </div>
                                 <div class="row m-0 mt-2 mx-auto">
                                     <div class="col-12 mx-auto">
-                                        <a role="button" href="./menu.html" class="col-auto btn btn-primary">Add Dishes to Cart</a>
+                                        <a role="button" href="./menu.html" class="col-auto btn btn-primary">Add Items to Cart</a>
                                     </div>
                                 </div>
                             </div>`;
@@ -447,8 +445,8 @@ async function cartValueUpdate(){
 cartValueUpdate();
 ///Updating Price Details on My Cart page
 async function priceDetailsUpdate(){
-    const response = await fetch(`/cartItems/${window.localStorage.getItem('_userid_')}`);
-    const dishIds = await response.json();
+    const response1 = await fetch(`/cartItems/${window.localStorage.getItem('_userid_')}`);
+    const dishIds = await response1.json();
 
     var totalPrice=0;
     for(dishId of dishIds){
@@ -456,6 +454,7 @@ async function priceDetailsUpdate(){
         const dish = await resp.json();
         totalPrice += Number(dish.price*dishId.quantity);
     }
+    const response2 = await fetch(`/priceUpdate/${window.localStorage.getItem('_userid_')}/${(totalPrice + 0.05 * totalPrice).toFixed(2)}`);
     //console.log(totalPrice);
     document.getElementById('totalPrice').innerText = totalPrice.toFixed(2);
     document.getElementById('priceGST').innerText = (0.05 * totalPrice).toFixed(2);
@@ -585,10 +584,7 @@ async function reviewSection(){
             const response = await fetch(`/removeUser/${window.localStorage.getItem('_userid_')}`);
             const success = await response.json();
             if(!errFlag && success.success){
-                window.sessionStorage.removeItem('_reviews');
-                window.localStorage.removeItem('_userid_');
-                window.localStorage.removeItem('_checkout_');
-                window.localStorage.removeItem('_seconds_');
+                clearTempStorage(false);
                 window.location.href = './redirect.html';
             }
         }
@@ -606,4 +602,28 @@ async function reviewSection(){
             reviewComments[i].value = local_reviews[i].comment;
         }
     }
+}
+async function clearTempStorage(flag){
+    if(flag){
+        if(window.confirm("Press OK to End Your Session Without Ordering")){
+            const response1 = await fetch(`/removeUserEntities/${window.localStorage.getItem('_userid_')}`);
+            //const success1 = response1.json();
+            const response2 = await fetch(`/removeUser/${window.localStorage.getItem('_userid_')}`);
+            const success2 = await response2.json();
+            //console.log(`${success1.success} ${success2.success}`);
+            if(success2.success){
+                window.sessionStorage.removeItem('_reviews');
+                window.localStorage.removeItem('_userid_');
+                window.localStorage.removeItem('_seconds_');
+                window.location.href = './index.html';
+            }
+        }
+        return;
+    }
+    window.sessionStorage.removeItem('_reviews');
+    window.localStorage.removeItem('_userid_');
+    window.localStorage.removeItem('_checkout_');
+    window.localStorage.removeItem('_seconds_');
+    return;
+
 }
