@@ -255,20 +255,37 @@ async function loadDish(){
         window.alert("Error Loading Reviews")
         console.error(err);
     });
+
     const addToCart = document.getElementById('addToCart');
+    const resp = await fetch(`/itemExistsInCart/${window.localStorage.getItem('_userid_')}/${dishId}`);
+    const exists = await resp.json();
+
+    if(exists.success){
+        if(exists.exists){
+            addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
+        }
+    }
+
     addToCart.addEventListener('click', async () => {
         console.log(document.getElementById('dishQty').innerText);
         let qty = document.getElementById('dishQty').innerText;
-        const response = await fetch(`/addToCart/${window.localStorage.getItem('_userid_')}/${dish._id}/${qty}`);
-        const success = await response.json();
 
-        //console.log(success);
-        if(success.success){
-            if(success.exists)
-                window.alert(`Item Already Exists in Cart\nQuantity Updated: ${qty}`);
+        const resp = await fetch(`/itemExistsInCart/${window.localStorage.getItem('_userid_')}/${dishId}`);
+        const exists = await resp.json();
+        if(exists.success){
+            if(exists.exists){
+                addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
+                window.location.href = './cart.html';
+            }
             else{
-                window.alert(`Item Added To Cart\nQuantity: ${qty}`);
-                cartValueUpdate();
+                const response = await fetch(`/addToCart/${window.localStorage.getItem('_userid_')}/${dish._id}/${qty}`);
+                const success = await response.json();
+
+                //console.log(success);
+                if(success.success){
+                    window.alert(`Item Added To Cart\nQuantity: ${qty}`);
+                    cartValueUpdate();
+                }
             }
         }
     });
@@ -572,7 +589,7 @@ async function reviewSection(){
                 window.localStorage.removeItem('_userid_');
                 window.localStorage.removeItem('_checkout_');
                 window.localStorage.removeItem('_seconds_');
-                window.location.href = './index.html';
+                window.location.href = './redirect.html';
             }
         }
         else

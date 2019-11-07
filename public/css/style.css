@@ -93,8 +93,6 @@ body{
 .input-select:first-child{
 	margin-right: 16px;
 }
-.input-select > option{
-}
 .login-label{
 	display: block;
 	margin-left: auto;
@@ -172,7 +170,7 @@ body{
 /*==================================================================================================================================================*/
 /*================================================================Navigation Menu==================================================================================*/
     .navigation-bar{
-        position: absolute;
+        position: fixed;
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
         z-index: 200;
         width: 100%;
@@ -212,7 +210,7 @@ body{
         transform: translate(-50%, 0);
     }
     .navigation-wrapper{
-        position: absolute;
+        position: fixed;
         z-index: 999;
         color: floralwhite;
     }

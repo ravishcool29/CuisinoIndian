@@ -120,6 +120,21 @@ app.get('/addToCart/:id/:dishId/:qty', (request, response) => {
             });
     });
 });
+app.get('/itemExistsInCart/:id/:dishId', (request, response) => {
+    console.log(request.params);
+    database.session.find({_userId: request.params.id, dishId: request.params.dishId}, (err, docs) => {
+        if(err){
+            console.error(err);
+            response.json({success: false});
+            return;
+        }
+        console.log(docs.length);
+        if(docs.length)
+            response.json({success: true, exists: true});
+        else
+            response.json({success: true, exists: false});
+    });
+});
 app.get('/cartItems/:id', (request, response) => {
     const id = request.params.id;
 
@@ -316,4 +331,7 @@ app.get('/removeUser/:id', (request, response) => {
             success: true
         });
     });
+});
+app.get('itemExistsInCart/:id/:dishId', (request, response) => {
+    database.session.find({_userid})
 });
