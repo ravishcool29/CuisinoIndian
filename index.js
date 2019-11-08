@@ -1,10 +1,12 @@
 const express = require('express');
 const Datastore = require('nedb');
+require('dotenv').config();
 
+const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.static('public'));
 app.use(express.json());
-app.listen(3001, () => {console.log('Listening...');});
+app.listen(port, () => {console.log(`Listening at ${port}...`);});
 
 const database = {};
 
