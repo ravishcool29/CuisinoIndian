@@ -15,7 +15,7 @@ body{
     background-color: #f5e1fd;
 }
 .home-slider{
-    min-height: 420px;
+    min-height: 560px;
     height: 88.7vh;
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('../img/background-food.jpg');

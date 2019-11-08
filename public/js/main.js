@@ -28,7 +28,9 @@ async function userCredValidate(){        ///Validation and
             email: email,
             phone: phnum,
             guests: guests,
-            seconds: seconds
+            time: seconds,
+            seconds: seconds,
+            totalPrice: 0.00
         };
         const response = await fetch('/saveUserInfo', {
             method: "POST",

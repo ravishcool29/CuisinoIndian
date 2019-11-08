@@ -321,6 +321,17 @@ app.get('/userAttribute/:id/:attr', (request, response) => {
             response.json({success: true, totalPrice: docs[0].totalPrice});
         });
     }
+    else if(attr === 'time'){
+        database.session.find({_id: request.params.id}, {time: 1, _id: 0}, (err, docs) => {
+            if(err){
+                console.error(err);
+                response.json({success: false});
+                return;
+            }
+            console.log({success: true, time: docs[0].time});
+            response.json({success: true, time: docs[0].time});
+        });
+    }
     else
         response.json({success: false});
 });
