@@ -10,67 +10,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" integrity="sha256-rFMLRbqAytD9ic/37Rnzr2Ycy/RlpxE5QH52h7VoIZo=" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css">
-    <script type="text/javascript">
-        if(window.localStorage.getItem("_checkout_")){
-            window.location.href = './checkout.html'
-        }
-        else if(!window.localStorage.getItem("_userid_")){
-            window.location.href = './index.html'
-        }
-    </script>
-    <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: 68vw 30vw;
-  height: 100vh;
-}
-.grid-item {
-  height: 100vh;
-}
-#launch{
-			height: 500px;
-			width:100%;
-			padding-top: 10px;
-			padding-left: 10px;
-			padding-bottom: 10px;
-			padding-right: 10px;
-		}
-#frame{
-    border-radius: 20px;
-}
-body{
-font-family: 'Open Sans', sans-serif;
-background-image: linear-gradient(to bottom right, indigo, violet);
-background-repeat: no-repeat;
-
-}
-#topslab{
-    border-radius:5%;
-    display: block;
-    background-color: rgba(255, 255, 255, 1);
-    width: 65vw;
-    height:95vh;
-    box-shadow:6px 7px 5px #000;
-    border-radius: 18px;
-    overflow: hidden;
-    margin-top:1%;
-}
-#topheading{
-    font-size: 24px;
-}
-#desc{
-    font-size: 16px;
-}
-
-::-webkit-scrollbar{
-		width:0px;
-		background: transparent;
-	}
-	::-webkit-scrollbar-thumb{
-		background: #FF0000;
-	}
-</style>
-        <title>About Us</title>
+        <title>Welcome to Cuisin-O-Indian</title>
 </head>
 <body>
     <div class="timer row mx-auto">
@@ -97,7 +37,7 @@ background-repeat: no-repeat;
     </div>
     <div class="navigation-bar nav-bg">
         <div class="navigation-logo-cart col-md-6 col-10">
-            <div class="navigation-logo" onclick="window.location.href = './home.html'">
+            <div class="navigation-logo" onclick="window.location.href = './index.html'">
             <img src="./img/logo.png" alt="Cuisino">
                 <h4>Cuisin-O-Indian</h4>
             </div>
@@ -116,27 +56,15 @@ background-repeat: no-repeat;
             <ul>
                 <li><a href="./home.html"><span class="fa fa-home mr-3"></span>Home</a></li>
                 <li><a href="./menu.html"><span class="fa fa-cutlery mr-3"></span>Menu</a></li>
-                <li><a href="#" class="active-page"><span class="fa fa-user mr-3"></span>About Us</a></li>
+                <li><a href="./aboutus.html"><span class="fa fa-user mr-3"></span>About Us</a></li>
                 <li><a href="./cart.html"><span class="fa fa-shopping-cart mr-3"></span>My Cart</a></li>
                 <li><a onclick="clearTempStorage(true)"><span class="fa fa-sign-out mr-3"></span>Sign Out</a></li>
             </ul>
         </nav>
     </div>
 
-    <div class="mid-section">
-    	<div class="grid-container">
-        	<div id=topslab>
-  				<div class="grid-item">
-        			<div id="launch">
-                		<iframe  src="about_text.html" height="133%" width="97%" seamless="seamless"  id="frame" ></iframe>
-            		</div>
-  				</div>
-			</div>
+    <div class="container mid-section">
 
-  			<div class="grid-item">
-      			<iframe src="about_AI.html" height="97%" width="102%" seamless="seamless"  id="frame" scrolling="no"></iframe>
-  			</div>
-		</div>
     </div>
 
     <footer class="footer">
@@ -147,7 +75,7 @@ background-repeat: no-repeat;
                     <ul class="footer-links list-unstyled">
                         <li><a href="./home.html">Home</a></li>
                         <li><a href="./menu.html">Menu</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="./aboutus.html">About Us</a></li>
                         <li><a href="./cart.html">My Cart</a></li>
                     </ul>
                 </div>
@@ -183,11 +111,6 @@ background-repeat: no-repeat;
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        callTimerFunction().catch(err => {
-            console.log('SECONDS ERROR');
-            console.error(err);
-        });
-    </script>
+
 </body>
 </html>

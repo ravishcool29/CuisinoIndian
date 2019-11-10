@@ -283,7 +283,7 @@ async function loadDish(){
                 //console.log(success);
                 if(success.success){
                     addToCart.innerHTML = `<span class="fa fa-shopping-cart"></span> <b>Go To Cart</b>`;
-                    window.alert(`Item Added To Cart\nQuantity: ${qty}`);
+                    //window.alert(`Item Added To Cart\nQuantity: ${qty}`);
                     cartValueUpdate();
                 }
             }
@@ -296,9 +296,9 @@ async function renderCartItems(){
     //const dish = {"category":"maincourse","cuisine":"chinese","_id":"ch01","name":"Kung Pao Chicken","price":459,"description":"Spicy chicken with peanuts, similar to what is served in Chinese restaurants. It is easy to make, and you can be as sloppy with the measurements as you want. They reduce to a nice, thick sauce. Substitute cashews for peanuts, or bamboo shoots for the water chestnuts. You can't go wrong! Enjoy!","image":"./img/Kung-Pao-Chicken.jpg","rating":{"total":37,"user_count":10}};
     const response = await fetch(`/cartItems/${window.localStorage.getItem('_userid_')}`);
     const dishIds = await response.json();
+    const cartList = document.getElementById('cartList');
 
     if(dishIds.length){
-        const cartList = document.getElementById('cartList');
         cartList.innerHTML = ``;
         for(dishId of dishIds){
             const res = await fetch(`/dishDetail/${dishId.dishId}`);
@@ -436,6 +436,18 @@ async function renderCartItems(){
             cartList.append(root);
         }
         await priceDetailsUpdate();
+    }
+    else{
+        cartList.innerHTML = `<div class="row m-0 justify-content-center align-content-center mt-5" style="height: 400px; width: 100%;">
+            <div class="col-12" align="center">
+                <img src="./img/box.png" alt="EMPTY">
+            </div>
+            <div class="row m-0 mt-2 mx-auto">
+                <div class="col-12 mx-auto">
+                    <a role="button" href="./menu.html" class="col-auto btn btn-primary">Add Items to Cart</a>
+                </div>
+            </div>
+        </div>`;
     }
 }
 ///Updating Cart Value in Nav Bar
