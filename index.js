@@ -89,7 +89,7 @@ app.get('/dishDetail/:dishId', (request, response) => {
     database.dishes.find({_id: request.params.dishId}, (err, doc) => {
         if(err){
             console.error(err);
-            response.end();
+            response.json();
             return;
         }
         //console.log(doc[0]);

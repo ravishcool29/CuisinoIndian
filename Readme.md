@@ -1,4 +1,4 @@
-# RestaurantMS
+# CuisinoIndian
 Project 219
 1. Clone or Download the repository
 2. Extract the zip file

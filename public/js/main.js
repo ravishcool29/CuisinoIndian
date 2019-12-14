@@ -256,7 +256,9 @@ async function loadDish(){
         window.alert("Error Loading Reviews")
         console.error(err);
     });
-
+    /*if(dish){
+        document.getElementById('loadingDiv').style.display = "none";
+    }*/
     const addToCart = document.getElementById('addToCart');
     const resp = await fetch(`/itemExistsInCart/${window.localStorage.getItem('_userid_')}/${dishId}`);
     const exists = await resp.json();

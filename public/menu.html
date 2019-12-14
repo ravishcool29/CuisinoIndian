@@ -70,6 +70,8 @@
         </nav>
     </div>
 
+    <button type="button" name="scrollToTop" id="scrollToTop" class="btn btn-danger"><i class="fa fa-chevron-up"></i></button>
+
     <div class=" container mid-section">
         <div class="row mb-1">
             <ol class="breadcrumb col-11 mx-auto bg-bread">
@@ -233,6 +235,21 @@
         callTimerFunction().catch(err => {
             console.log('SECONDS ERROR');
             console.error(err);
+        });
+        const scrollToTop = document.getElementById('scrollToTop');
+        window.onscroll = () => {
+            if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+                scrollToTop.style.display = "block";
+                scrollToTop.style.animationName = "scrollToTop";
+            }
+            else{
+                scrollToTop.style.animationName = "scrollToTopHide";
+                //scrollToTop.style.display = "none";
+            }
+        }
+        scrollToTop.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         });
     </script>
 </body>
