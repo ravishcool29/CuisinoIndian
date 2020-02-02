@@ -1,16 +1,10 @@
 {"name":"Ravish Chaudhary","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"10800","seconds":"9121","totalPrice":0,"_id":"1rkwvEVjkIAedrel","_dishId":"ch06"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2700","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2641","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2581","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2521","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2461","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2401","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2341","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2281","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2221","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2221","totalPrice":0,"_id":"xWfzrdC3gdbhZ2yc","_dishId":"start01"}
-{"_userId":"xWfzrdC3gdbhZ2yc","dishId":"start01","quantity":1,"_id":"MSkmpzbb0FlCSXWC"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2221","totalPrice":"21.00","_id":"xWfzrdC3gdbhZ2yc","_dishId":"start01"}
-{"name":"Ravish Chaudhary","email":"abc@example.com","phone":"1231231231","guests":"2","time":"2700","seconds":"2161","totalPrice":"21.00","_id":"xWfzrdC3gdbhZ2yc","_dishId":"start01"}
-{"$$deleted":true,"_id":"MSkmpzbb0FlCSXWC"}
-{"$$deleted":true,"_id":"xWfzrdC3gdbhZ2yc"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1800","totalPrice":0,"_id":"mq6F7g5AR9Lj2NN4"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1741","totalPrice":0,"_id":"mq6F7g5AR9Lj2NN4"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1741","totalPrice":0,"_id":"mq6F7g5AR9Lj2NN4","_dishId":"start03"}
+{"_userId":"mq6F7g5AR9Lj2NN4","dishId":"start03","quantity":1,"_id":"CPmirSVMuJnGo5bs"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1741","totalPrice":"84.00","_id":"mq6F7g5AR9Lj2NN4","_dishId":"start03"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1681","totalPrice":"84.00","_id":"mq6F7g5AR9Lj2NN4","_dishId":"start03"}
+{"name":"11706370@lpu.com","email":"ravishcool29@gmail.com","phone":"1231231231","guests":"1","time":"1800","seconds":"1621","totalPrice":"84.00","_id":"mq6F7g5AR9Lj2NN4","_dishId":"start03"}
+{"$$deleted":true,"_id":"CPmirSVMuJnGo5bs"}
+{"$$deleted":true,"_id":"mq6F7g5AR9Lj2NN4"}
